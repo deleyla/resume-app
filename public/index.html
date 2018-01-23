@@ -13,7 +13,7 @@
 
 
   <body>
-    <div id="vue-app">
+    <div id="vue-app" class="container">
 
 <!-- =========================== -->
 <!-- NAV -->
@@ -73,29 +73,22 @@
 <!-- =========================== -->
 
 <template id="index-page">
-  <div class="vue-component container">
-    <div class="col-lg-6">
-      <div class="row">
-        <div class="card" style="width: 50rem;">
-          <img class="card-img-top" src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX4630795.jpg" alt="Card image cap">
-          <div class="card-block" v-for="student in students">
+  <div class="vue-component">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card" v-for="student in students" style="width: 30rem;">
+          <div class="card-block">
+            <img class="card-img-top" src="http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg" alt="Card image cap">
             <h4 class="card-title"> {{student.first_name}} {{student.last_name}}</h4>
             <p class="card-text"></p>
             <p class="card-text"> Email: <a href="mailto:{{student.email}}">{{student.email}}</a></p>
             <p class="card-text"> Phone: {{student.phone_number}}</p>
-
             <p class="card-text"> Bio: {{student.short_bio}}</p>
-
             <p class="card-text"> LinkedIn: <a v-bind:href="student.linkedin_url">  {{student.linkedin_url}}</a></p>
-
             <p class="card-text">Twitter Handle: <a v-bind:href="student.twitter_handle">@{{student.twitter_handle}}</a></p>
-
             <p class="card-text"> Blog: <a v-bind:href="student.personal_blog_url"> {{student.personal_blog_url}}</a></p>
-
             <p class="card-text"> Resume: <a v-bind:href="student.online_resume_url"> {{student.online_resume_url}} </a></p>
-
             <p class="card-text"> Github: <a v-bind:href="student.github_url">{{student.github_url}}</a></p>
-
             <img v-bind:src="student.github_url"/>
             <!-- 
               experience, education, skills, capstone -->
