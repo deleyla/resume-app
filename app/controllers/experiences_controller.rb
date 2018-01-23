@@ -11,11 +11,11 @@ class ExperiencesController < ApplicationController
 
   def create
     experience = Experience.new(
-      # student_id: current_user.id,
+      student_id: 100,
       start_date: params[:start_date],
       end_date: params[:end_date],
-      degree: params[:degree],
-      university_name: params[:university_name],
+      job_title: params[:job_title],
+      company_name: params[:company_name],
       details: params[:details]
     )
     if experience.save
@@ -27,6 +27,7 @@ class ExperiencesController < ApplicationController
 
   def update
     experience = Experience.find_by(id: params[:id])
+    experience.student_id = params[:student_id]
     experience.start_date = params[:start_date]
     experience.end_date = params[:end_date]
     experience.job_title = params[:job_title]

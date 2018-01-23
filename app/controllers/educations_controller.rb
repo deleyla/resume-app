@@ -11,7 +11,7 @@ class EducationsController < ApplicationController
 
   def create
     education = Education.new(
-      # student_id: current_user.id,
+      student_id: 100,
       start_date: params[:start_date],
       end_date: params[:end_date],
       degree: params[:degree],
@@ -27,6 +27,7 @@ class EducationsController < ApplicationController
 
   def update
     education = Education.find_by(id: params[:id])
+    education.student_id = 100
     education.start_date = params[:start_date]
     education.end_date = params[:end_date]
     education.degree = params[:degree]
