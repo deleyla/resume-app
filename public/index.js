@@ -1,8 +1,5 @@
 /* global Vue, VueRouter, axios */
 
-
-
-
 // =======================
 // INDEX COMPONENT
 // =======================
@@ -25,7 +22,9 @@ var IndexPage = {
   computed: {}
 };
 
-// Begin Login Page
+// =======================
+// LOGIN COMPONENT
+// =======================
 
 var LoginPage = {
   template: "#login-page",
@@ -60,7 +59,10 @@ var LoginPage = {
   }
 };
 
-// Begin MyResume (SHOW) Page
+// =======================
+// SHOW COMPONENT
+// =======================
+
 var MyResume = {
   template: "#my-resume-page",
   data: function() {
@@ -86,8 +88,8 @@ var MyResume = {
 
 var router = new VueRouter({
   routes: [{ path: "/students", component: IndexPage },
-  { path: "/myResume", component: MyResume },
-  { path: "/login", component: LoginPage }],
+    { path: "/myResume", component: MyResume },
+    { path: "/login", component: LoginPage }],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
   }
