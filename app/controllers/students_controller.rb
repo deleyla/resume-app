@@ -18,8 +18,11 @@ class StudentsController < ApplicationController
       github_url: params[:github_url],
       photo: params[:photo],
       password_digest: params[:password_digest])
-    student.save
-    render json: student.as_json
+    if student.save
+      render json: {status: 'Student created successfully'}, status: :created
+    else
+      render json: {errors: student.errors.full_messages}, status: :bad_request
+    end
   end
 
   def show
