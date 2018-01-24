@@ -1,11 +1,7 @@
 class EducationsController < ApplicationController
   def index
-    if current_user
       educations = Education.all
       render json: educations.as_json
-    else
-      render json: {}
-    end
   end
 
   def show
