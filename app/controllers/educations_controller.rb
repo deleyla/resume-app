@@ -30,7 +30,7 @@ class EducationsController < ApplicationController
   end
 
   def update
-    education = Education.find_by(id: params[:id])
+    education = Education.find_by(id: current_user.id)
     education.start_date = params[:start_date]
     education.end_date = params[:end_date]
     education.degree = params[:degree]

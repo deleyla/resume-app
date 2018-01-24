@@ -30,7 +30,7 @@ class ExperiencesController < ApplicationController
   end
 
   def update
-    experience = Experience.find_by(id: params[:id])
+    experience = Experience.find_by(id: current_user.id)
     experience.start_date = params[:start_date]
     experience.end_date = params[:end_date]
     experience.job_title = params[:job_title]
