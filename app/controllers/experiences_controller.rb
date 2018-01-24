@@ -1,11 +1,7 @@
 class ExperiencesController < ApplicationController
   def index
-    if current_user
       experiences = Experience.all
       render json: experiences.as_json
-    else
-      render json: {}
-    end
   end
 
   def show
