@@ -5,7 +5,7 @@ class EducationsController < ApplicationController
   end
 
   def show
-    education = Education.find_by(id: params[:id])
+    education = Education.find_by(id: current_user.id)
     render json: education.as_json
   end
 
@@ -26,8 +26,7 @@ class EducationsController < ApplicationController
   end
 
   def update
-    education = Education.find_by(id: params[:id])
-    # education.student_id = current_user.id
+    education = Education.find_by(id: current_user.id)
     education.start_date = params[:start_date]
     education.end_date = params[:end_date]
     education.degree = params[:degree]
