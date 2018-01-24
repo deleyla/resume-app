@@ -9,7 +9,7 @@ class ExperiencesController < ApplicationController
   end
 
   def show
-    experience = Experience.find_by(id: params[:id])
+    experience = Experience.find_by(id: current_user.id)
     render json: experience.as_json
   end
 

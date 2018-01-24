@@ -9,7 +9,7 @@ class EducationsController < ApplicationController
   end
 
   def show
-    education = Education.find_by(id: params[:id])
+    education = Education.find_by(id: current_user.id)
     render json: education.as_json
   end
 
