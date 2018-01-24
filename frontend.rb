@@ -2,8 +2,8 @@ require 'unirest'
 require 'pp'
 base_url = 'localhost:3000'
 
-p 'choose an option'
-
+p "Welcome to the Student Resume App"
+p "Choose an option"
 p '[1] show all educations'
 p '[2] show a particular education'
 p '[3] add an education'
@@ -14,7 +14,11 @@ p '[7] show a particular experience'
 p '[8] add an experience'
 p '[9] update an experience'
 p '[10] delete an experience'
-
+p "[11] View all student resumes"
+p "[12] View a particular student resume"
+p "[13] Create a new student resume"
+p "[14] Update a particular student's resume"
+p "[15] Destroy a particular student's resume"
 
 user_input = gets.chomp
 
@@ -108,4 +112,12 @@ elsif user_input == '10'
   experience_id = gets.chomp
   response = Unirest.delete("#{base_url}/experiences/#{experience_id}")
   p 'education has been deleted'
+elsif user_input == '11'
+  response = Unirest.get("#{base_url}/students")
+  pp response.body
+elsif user_input == '12'
+  p 'enter id of the student you want to view'
+  student_id = gets.chomp
+  response = Unirest.get("#{base_url}/students/#{student_id}")
+  pp response.body
 end
