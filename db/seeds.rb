@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require 'faker'
 
 Student.create(

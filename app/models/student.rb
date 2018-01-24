@@ -5,7 +5,7 @@ class Student < ApplicationRecord
   has_many :skills
   has_many :capstones
 
-  validates :email, presence: true, uniqueness: true
+  # validates :email, presence: true, uniqueness: true
 
   def as_json
     {
