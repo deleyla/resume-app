@@ -1,7 +1,15 @@
 class ExperiencesController < ApplicationController
   def index
+<<<<<<< HEAD
     experiences = Experience.all
     render json: experiences.as_json
+=======
+      experiences = Experience.all
+      render json: experiences.as_json
+    else
+      render json: {}
+    end
+>>>>>>> 02db96825986792b19dd9fa32cc6b563128ca4f4
   end
 
   def show

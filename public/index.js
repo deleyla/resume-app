@@ -1,8 +1,5 @@
 /* global Vue, VueRouter, axios */
 
-
-
-
 // =======================
 // INDEX COMPONENT
 // =======================
@@ -25,7 +22,9 @@ var IndexPage = {
   computed: {}
 };
 
-// Begin Login Page
+// =======================
+// LOGIN COMPONENT
+// =======================
 
 var LoginPage = {
   template: "#login-page",
@@ -42,12 +41,12 @@ var LoginPage = {
         auth: { email: this.email, password: this.password }
       };
       axios
-        .post("/user_token", params)
+        .post("/student_token", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          router.push("/");
+          router.push("/myResume");
         })
         .catch(
           function(error) {
@@ -60,7 +59,10 @@ var LoginPage = {
   }
 };
 
-// Begin MyResume (SHOW) Page
+// =======================
+// SHOW COMPONENT
+// =======================
+
 var MyResume = {
   template: "#my-resume-page",
   data: function() {
@@ -72,6 +74,7 @@ var MyResume = {
   created: function() {
     axios.get('/students/show').then(function(response) {
       this.userResume = response.data;
+      console.log(this.userResume);
     }.bind(this));
   },
   methods: {},
@@ -86,8 +89,8 @@ var MyResume = {
 
 var router = new VueRouter({
   routes: [{ path: "/students", component: IndexPage },
-  { path: "/myResume", component: MyResume },
-  { path: "/login", component: LoginPage }],
+    { path: "/myResume", component: MyResume },
+    { path: "/login", component: LoginPage }],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
   }

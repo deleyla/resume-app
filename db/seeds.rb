@@ -1,3 +1,4 @@
+
 require 'faker'
 
 Student.create(
@@ -6,7 +7,6 @@ Student.create(
   email: Faker::Internet.email,
   phone_number: Faker::PhoneNumber.phone_number,
   short_bio: Faker::Lorem.paragraph,
-  linkedin_url: Faker::Internet.url('linkedin.com/in/'),
   twitter_handle: Faker::Twitter.screen_name,
   personal_blog_url: Faker::Internet.url,
   online_resume_url: Faker::Internet.url, 
@@ -77,3 +77,13 @@ Capstone.create!([
    url: "www.youtube.com",
    screenshot: "asdfc"} 
 ])
+
+
+  Experience.create!(
+    start_date: Faker::Date.backward(14),
+    end_date: Faker::Date.forward(23),
+    job_title: Faker::Company.profession,
+    company_name: Faker::Company.name,
+    details: 'not available'
+  )
+end
