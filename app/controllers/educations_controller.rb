@@ -1,7 +1,11 @@
 class EducationsController < ApplicationController
   def index
-    educations = Education.all
-    render json: educations.as_json
+    if current_user
+      educations = Education.all
+      render json: educations.as_json
+    else
+      render json: {}
+    end
   end
 
   def show
@@ -11,7 +15,7 @@ class EducationsController < ApplicationController
 
   def create
     education = Education.new(
-      student_id: 100,
+      student_id: current_user.id,
       start_date: params[:start_date],
       end_date: params[:end_date],
       degree: params[:degree],
@@ -27,7 +31,6 @@ class EducationsController < ApplicationController
 
   def update
     education = Education.find_by(id: params[:id])
-    education.student_id = 100
     education.start_date = params[:start_date]
     education.end_date = params[:end_date]
     education.degree = params[:degree]

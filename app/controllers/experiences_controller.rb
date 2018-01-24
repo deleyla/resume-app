@@ -1,7 +1,11 @@
 class ExperiencesController < ApplicationController
   def index
-    experiences = Experience.all
-    render json: experiences.as_json
+    if current_user
+      experiences = Experience.all
+      render json: experiences.as_json
+    else
+      render json: {}
+    end
   end
 
   def show
@@ -11,7 +15,7 @@ class ExperiencesController < ApplicationController
 
   def create
     experience = Experience.new(
-      student_id: 100,
+      student_id: current_user.id,
       start_date: params[:start_date],
       end_date: params[:end_date],
       job_title: params[:job_title],
@@ -27,7 +31,6 @@ class ExperiencesController < ApplicationController
 
   def update
     experience = Experience.find_by(id: params[:id])
-    experience.student_id = params[:student_id]
     experience.start_date = params[:start_date]
     experience.end_date = params[:end_date]
     experience.job_title = params[:job_title]
