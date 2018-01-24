@@ -1,7 +1,11 @@
 class StudentsController < ApplicationController
   def index
-    students = Student.all
-    render json: students.as_json
+    if current_user
+      students = Student.all
+      render json: students.as_json
+    else
+      {}
+    end
   end
 
   def create
