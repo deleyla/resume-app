@@ -41,12 +41,12 @@ var LoginPage = {
         auth: { email: this.email, password: this.password }
       };
       axios
-        .post("/user_token", params)
+        .post("/student_token", params)
         .then(function(response) {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          router.push("/");
+          router.push("/myResume");
         })
         .catch(
           function(error) {
@@ -74,6 +74,7 @@ var MyResume = {
   created: function() {
     axios.get('/students/show').then(function(response) {
       this.userResume = response.data;
+      console.log(this.userResume);
     }.bind(this));
   },
   methods: {},

@@ -21,7 +21,7 @@
 
     <a href="/#/signup">Signup</a>
     <a href="/#/login">Login</a>
-    <a href="/#/myresume">My Resume</a>
+    <a href="/#/myResume">My Resume</a>
     <a href="/#/students">View Student Resumes</a>
 
     <router-view></router-view>
@@ -62,8 +62,19 @@
 
 <template id="my-resume-page">
   <div class="vue-component">
-    <div v-for="resume in userResume"> 
-      <p> {{ resume.first_name }} </p>
+    <div> 
+            <img class="card-img-top" src="http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg" alt="Card image cap">
+            <h4 class="card-title"> {{userResume.first_name}} {{userResume.last_name}}</h4>
+            <p class="card-text"></p>
+            <p class="card-text"> Email: <a href="mailto:{{student.email}}">{{userResume.email}}</a></p>
+            <p class="card-text"> Phone: {{userResume.phone_number}}</p>
+            <p class="card-text"> Bio: {{userResume.short_bio}}</p>
+            <p class="card-text"> LinkedIn: <a v-bind:href="userResume.linkedin_url">  {{userResume.linkedin_url}}</a></p>
+            <p class="card-text">Twitter Handle: <a v-bind:href="userResume.twitter_handle">@{{userResume.twitter_handle}}</a></p>
+            <p class="card-text"> Blog: <a v-bind:href="userResume.personal_blog_url"> {{userResume.personal_blog_url}}</a></p>
+            <p class="card-text"> Resume: <a v-bind:href="userResume.online_resume_url"> {{userResume.online_resume_url}} </a></p>
+            <p class="card-text"> Github: <a v-bind:href="userResume.github_url">{{userResume.github_url}}</a></p>
+            <img v-bind:src="userResume.github_url"/>
     </div>
   </div>    
 </template>

@@ -26,8 +26,10 @@ class StudentsController < ApplicationController
   end
 
   def show
-    student = Student.find_by(id: current_user.id)
+    student = Student.find_by(id: current_student.id)
     render json: student.as_json
+    p current_student.id
+    p student.as_json
   end
 
   def update
