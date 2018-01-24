@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   
   post 'student_token' => 'student_token#create'
   get "/students" => "students#index"
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   get "/students/show" => "students#show"
   patch "/students/:id" => "students#update"
   delete "/students/:id" => "students#destroy"
-
+=======
   get '/experiences' => 'experiences#index'
   get '/experiences/:id' => 'experiences#show'
   post '/experiences' => 'experiences#create'
@@ -18,4 +19,5 @@ Rails.application.routes.draw do
   post '/educations' => 'educations#create'
   patch '/educations/:id' => 'educations#update'
   delete '/educations/:id' => 'educations#destroy'
+>>>>>>> 9d2b751aa6be0a8bdbcc2eececdfcba13a2249cc
 end

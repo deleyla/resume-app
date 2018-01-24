@@ -13,17 +13,20 @@ Student.create(
   password: "password"
   )
 
-Student.create(
-  first_name: "Test",
-  last_name: "Testerson",
-  email: "test@test.com",
-  phone_number: "1234567890",
-  short_bio: "asdf",
-  linkedin_url: "test@test.com",
-  twitter_handle: "@test",
-  personal_blog_url: "test@test.com",
-  online_resume_url: "test@test.com",
-  github_url: "test@test.com",
-  photo: "photo.jpg",
-  password: "password"
+4.times do
+  Education.create!(
+    start_date: Faker::Date.backward(14),
+    end_date: Faker::Date.forward(23),
+    degree: Faker::Educator.course,
+    university_name: Faker::University.name,
+    details: 'not available'
   )
+
+  Experience.create!(
+    start_date: Faker::Date.backward(14),
+    end_date: Faker::Date.forward(23),
+    job_title: Faker::Company.profession,
+    company_name: Faker::Company.name,
+    details: 'not available'
+  )
+end
