@@ -1,10 +1,8 @@
 class SkillsController < ApplicationController
-  def index  
-    skill = Skill.all
-    render json: skill.as_json
+  def index 
+    skills = Skill.all
+    render json: skills.as_json
   end
-
-  
 
   def show 
     skill = Skill.find_by(id: current_user.id)
@@ -12,20 +10,24 @@ class SkillsController < ApplicationController
   end 
 
   def create
-    skill = Skill.new(
+    student_skill = Skill.new(
+      student_id: current_user.id,
       skill_name: params['name']
     )
-    skill.save
-    render json: skill.as_json
-    
+    if student_skill.save
+      render json: student_skill.as_json
+    else 
+      render json: {errors: student_skill.errors.full_messages}
   end
 
   def update
     student_skill = Skill.find_by(id: current_user.id)
     student_skill.skill_name = params[:skill_name]
     
-    skill.save
-    render json: skill.as_json
+    if student_skill.save
+      render json: student_skill.as_json
+    else
+      render json: {errors: student_skill.errors.full_messages}
   end
 
   def destroy 

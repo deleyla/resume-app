@@ -1,4 +1,6 @@
 class Capstone < ApplicationRecord
+  belongs_to :student
+
   def as_json
     {
       id: id,
