@@ -25,10 +25,10 @@ Rails.application.routes.draw do
   delete '/skills/:id' => 'skills#destroy'
 
   # capstone routes
-  get '/capstone' => 'capstone#index'
-  get '/capstone/show' => 'capstone#show'
-  post '/capstone' => 'capstone#create'
-  patch '/capstone/:id' => 'capstone#update'
-  delete '/capstone/:id' => 'capstone#destroy'
+  get '/capstones' => 'capstones#index'
+  get '/capstones/show' => 'capstones#show'
+  post '/capstones' => 'capstones#create'
+  patch '/capstones/:id' => 'capstones#update'
+  delete '/capstones/:id' => 'capstones#destroy'
 
 end

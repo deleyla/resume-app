@@ -1,5 +1,5 @@
 class Skill < ApplicationRecord
-  belongs_to :student
+  # belongs_to :student
 
   def as_json
     {

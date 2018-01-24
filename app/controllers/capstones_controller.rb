@@ -1,7 +1,7 @@
 class CapstonesController < ApplicationController
   def index 
-    capstone = Capstpne.all
-    render json: capstones.as_json
+    capstone = Capstone.all
+    render json: capstone.as_json
   end
 
   def show 

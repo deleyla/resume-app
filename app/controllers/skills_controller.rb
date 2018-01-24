@@ -18,6 +18,7 @@ class SkillsController < ApplicationController
       render json: student_skill.as_json
     else 
       render json: {errors: student_skill.errors.full_messages}
+    end
   end
 
   def update
@@ -28,6 +29,7 @@ class SkillsController < ApplicationController
       render json: student_skill.as_json
     else
       render json: {errors: student_skill.errors.full_messages}
+    end
   end
 
   def destroy 
@@ -38,4 +40,3 @@ class SkillsController < ApplicationController
   end
 
 end
-
